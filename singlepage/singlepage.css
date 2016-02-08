@@ -1,0 +1,9 @@
+body {
+	background-image: url('back1.gif');
+	color: white;
+}
+
+.top-bar,
+.top-bar ul {
+	background-color: black;
+}
