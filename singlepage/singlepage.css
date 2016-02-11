@@ -7,3 +7,29 @@ body {
 .top-bar ul {
 	background-color: black;
 }
+
+.blackbg,
+.blackbg::before,
+.blackbg::after {
+	background-color: rgba(0,0,0,1);
+}
+
+.blacktint0,
+.blacktint0::before,
+.blacktint0::after {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.blacktint1 {
+	background-color: rgba(12,12,12,0.5);
+}
+
+.blacktint2,
+.blacktint2::before,
+.blacktint2::after {
+	background-color: rgba(25,25,25,0.5);
+}
+
+.centralpadding {
+	padding: 1em 0 1em 0;
+}
