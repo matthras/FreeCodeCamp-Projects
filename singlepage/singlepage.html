@@ -16,20 +16,20 @@
 <body>
 
 <!-- Top Bar -->
-<div class="top-bar">
+<div class="top-bar" data-topbar>
 	<div class="row">
 		<div class="small-8 small-offset-2 columns">
 			<!-- Left Section of Menu: Name + Logo -->
 			<div class="top-bar-left">
-			<ul class="menu">
-				<li class="menu-text">Matthew Mack | Cellist, Mathematician, Developer</li>
-			</ul>
+				<ul class="menu">
+					<li class="menu-text">Matthew Mack | Cellist, Mathematician, Developer</li>
+				</ul>
 			</div>
 			<!-- Right Section of Menu -->
 			<div class="top-bar-right">
-				<ul class="menu">
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
+				<ul class="menu" data-magellan>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,7 +49,7 @@
 
 <!-- About Me -->
 <div class="blacktint2">
-	<div class="row" id="about">
+	<div class="row" id="about" data-magellan-target="about">
 		<div class="small-8 small-offset-2 columns centralpadding">
 			<h4 class="text-center">About</h4>
 			<p class="text-center">Matthew Mack aims to be a versatile individual capable of doing a variety of things, and utterly hates writing about himself. Nevertheless, he hopes that his sense of humour has elicited some form of chuckle from you, dear reader.</p>
@@ -61,12 +61,12 @@
 <div class="row" id="category1">
 	<div class="small-8 small-offset-2 columns centralpadding">
 		<div class="row">
-			<div class="small-6 columns text-center">
-				<h4>Mathematician</h4>
+			<div class="small-6 columns">
+				<h4 class="text-center">Mathematician</h4>
 				<p class="text-left">Matt graduated from the University of Melbourne in 2014 with a Master of Science (Mathematics & Statistics) with his specialisation in operations research.</p>
 			</div>
-			<div class="small-6 columns text-center">
-				<h4>Developer</h4>
+			<div class="small-6 columns">
+				<h4 class="text-center">Developer</h4>
 				<p class="text-left">Matt dabbles in various languages, his current preferred flavour being Javascript. During his study he covered MATLAB, Mathematica, and used Python (along with Gurobi) for his research. In expanding his web developer abilities beyond customising Wordpress template, Matt started taking on the tutorials and challenges posted by <a href="http://freecodecamp.com">FreeCodeCamp</a> which has led to the birth of this single page template.</p>
 				<ul class="text-left">
 					<li><a href="http://freecodecamp.com/matthras">FreeCodeCamp Profile</a></li>
@@ -81,21 +81,16 @@
 <div class="row" id="category2">
 	<div class="small-8 small-offset-2 columns centralpadding">
 		<div class="row">
-			<div class="small-6 columns centralpadding">
+			<div class="small-6 columns">
 				<h4 class="text-center">Teaching</h4>
-				<p class="text-left">Matt is and has been employed as a sessional tutor at a number of tertiary institutions, 
+				<p class="text-left">Matt is and has been employed as a sessional tutor at a number of tertiary institutions including the University of Melbourne and Deakin University, covering a variety of undergraduate mathematics subjects from calculus to operations research. </p>
 			</div>
-			<div class="small-6 columns centralpadding">
+			<div class="small-6 columns">
 				<h4 class="text-center">Musician</h4>
-				<p class="text-left">Before studying mathematics, Matt begin his university study with a now-completed Bachelor of Music, majoring in cello performance.
+				<p class="text-left">Before studying mathematics, Matt begin his university study with a now-completed Bachelor of Music, majoring in cello performance. Complications with his hearing impairment and depression, and the realisation that he was not cut out for a primary career in music, Matt has reduced his involvement in musical activites and now hopes to release various YouTube videos featuring various arrangements of music he enjoys listening to.</p>
 			</div>
 		</div>
 	</div>
-</div>
-
-<!-- Contact -->
-<div class="row" id="contact">
-
 </div>
 
 <!-- Footer -->
@@ -105,6 +100,7 @@
 			<a href="http://www.facebook.com/matthras"><img style="filter: invert(100%);" src="../assets/glyphicons/glyphicons-social-31-facebook.png"></a>
 			<a href="http://www.twitter.com/matthras"><img style="filter: invert(100%);" src="../assets/glyphicons/glyphicons-social-32-twitter.png"></a>
 			<a href="http://au.linkedin.com/matthewypmack"><img style="filter: invert(100%);" src="../assets/glyphicons/glyphicons-social-18-linked-in.png"></a>
+			<a href="mailto:mm@matthewmack.com.au"><img style="filter: invert(100%);" src="../assets/glyphicons/glyphicons-11-envelope.png"></a>
 		</div>
 	</div>
 </div>

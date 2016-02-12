@@ -33,3 +33,12 @@ body {
 .centralpadding {
 	padding: 1em 0 1em 0;
 }
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	z-index: 9999;
+	width: 100%;
+	height:auto;
+	background-color: black;
+}
