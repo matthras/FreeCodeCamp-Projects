@@ -12,15 +12,26 @@ var margin = {top: 40, right: 40, bottom: 40, left: 40},
 	width = 960 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom;
 
-var x = d3.scale.ordinal()
-	.
+var x = d3.time.scale()
+	.ticks(d3.time.month, 3);
+
+var svg = d3.select("body").append("svg");
 
 var data;
 
 d3.json("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json", function(error, json) {
 	if (error) return console.warn(error);
-	data = json;
-	visualizeit();
+	data = json.data;
+	
+
+	svg.selectAll(".bar")
+		.data(data)
+		.enter().append("rect")
+			.attr("class", "bar")
+			.attr("x", function(d) { return d[0]})
+			.attr("y", function(d) { return d[1]})
+			// Problem: Invalid value for <rect> attribute x = [date] - best guess is that at the moment I don't know how to specify date attributes to the Xaxis
+
 });
 
 </script>
