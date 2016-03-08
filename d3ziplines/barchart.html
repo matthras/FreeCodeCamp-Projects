@@ -32,7 +32,6 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 var x = d3.time.scale()
 	.domain([new Date(1947,1,1), new Date(2015,7,1)])
 	.range([margin.left, width])
-	//.ticks(d3.time.month);
 
 var y = d3.scale.linear()
 	.domain([0, 18064.7]) // Move this into json later
@@ -40,7 +39,8 @@ var y = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
 	.scale(x)
-	.orient('bottom');
+	.orient('bottom')
+	.ticks(d3.time.years, 5);
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -74,13 +74,13 @@ d3.json("barchartdata.json", type, function(error, json) {
 
 	svg.selectAll(".bar") // Selects all elements ilnked to the CSS class .bar - I have a feeling this needs to be changed.
 		.data(data) // Binds 'data' to the 'd' that's used in the functions below
-		.enter().append('rect')
-			.attr('class','bar')
-			.attr("x", function(d) { return d[0]})
-			.attr('width', x.range())
-			.attr("y", function(d) { return d[1]})
-			.attr('height', function(d) { return height-y.range()})
-			// Problem: Invalid value for <rect> attribute x = [date] - best guess is that at the moment I don't know how to specify date attributes to the Xaxis == This appears to be fixed?
+	.enter().append('rect')
+		.attr('class','bar')
+		.attr("x", function(d) { return d[0]})
+		.attr('width', x.range())
+		.attr("y", function(d) { return d[1]})
+		.attr('height', function(d) { return height-y.range()})
+		// Problem: Invalid value for <rect> attribute x = [date] - best guess is that at the moment I don't know how to specify date attributes to the Xaxis == This appears to be fixed?
 
 
 });
