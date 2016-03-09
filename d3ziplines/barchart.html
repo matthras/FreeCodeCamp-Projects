@@ -70,7 +70,7 @@ svg.selectAll('.bar')
 	.attr("x", function(d) { return x(new Date(d[0]))})
 	.attr('width', '10px')
 	.attr('y', function(d) { return y(d[1])})
-	.attr('height', function(d) { return y(d[1])});
+	.attr('height', function(d) { return height - y(d[1])});
 
 // d3.json("barchartdata.json", type, function(error, json) {
 // 	if (error) return console.warn(error);
