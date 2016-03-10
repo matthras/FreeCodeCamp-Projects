@@ -1,3 +1,18 @@
+<!-- To-Do
+
+Design
+- Figure out x.range for auto-width of rectangles
+- Figure out how to join the axess
+- Hover option for each of the bars to display tooltip
+
+
+Data References
+- var x: replace new Dates() with reference to data
+- Replace var data with link to JSON file
+- Move x.domain and y.domain into JSON link
+
+-->
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -7,13 +22,13 @@
 }
 
 .axis {
-  font: 10px sans-serif;
+  font: 11px sans-serif;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: black;
   shape-rendering: crispEdges;
 }
 
@@ -33,7 +48,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 
 var x = d3.time.scale()
 	.domain([new Date(1947,1,1), new Date(2015,7,1)])
-	.rangeRound([margin.left, width])
+	.range([margin.left, width])
 
 var y = d3.scale.linear()
 	.domain([0, 18064.7]) // Move this into json later
@@ -56,10 +71,12 @@ var svg = d3.select("body") // Selects the body element in HTML to attach the ch
 		.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')')
 
 svg.append('g')
+	.attr('class', 'axis')
 	.attr("transform", "translate(0,"+height+")")
 	.call(xAxis);
 
 svg.append('g')
+	.attr('class', 'axis')
 	.attr("transform", "translate(20, 0)")
 	.call(yAxis);
 
@@ -68,7 +85,7 @@ svg.selectAll('.bar')
 .enter().append('rect')
 	.attr('class', 'bar')
 	.attr("x", function(d) { return x(new Date(d[0]))})
-	.attr('width', '10px')
+	.attr('width', '1px' )
 	.attr('y', function(d) { return y(d[1])})
 	.attr('height', function(d) { return height - y(d[1])});
 
