@@ -1,8 +1,9 @@
 <!-- To-Do
 
+http://alignedleft.com/tutorials/d3/axes
+
 Design
 - Figure out x.range for auto-width of rectangles
-- Figure out how to join the axess
 - Hover option for each of the bars to display tooltip
 
 
@@ -47,12 +48,12 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.time.scale()
-	.domain([new Date(1947,1,1), new Date(2015,7,1)])
+	.domain([new Date(1947,1,1), new Date(2015,7,1)]) // Move to JSON later
 	.range([margin.left, width])
 
 var y = d3.scale.linear()
 	.domain([0, 18064.7]) // Move this into json later
-	.range([height,0]) // How do I select all columns of data, e.g. data[,0]? 
+	.range([height,0])
 
 var xAxis = d3.svg.axis()
 	.scale(x)
@@ -70,15 +71,29 @@ var svg = d3.select("body") // Selects the body element in HTML to attach the ch
 	.append('g')
 		.attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')')
 
-svg.append('g')
+svg.append('g') // X-axis
 	.attr('class', 'axis')
 	.attr("transform", "translate(0,"+height+")")
 	.call(xAxis);
 
-svg.append('g')
+svg.append('text') // X-axis label
+	.attr('x', width/2 )
+	.attr('y', height+margin.bottom)
+	.style('text-anchor', 'middle')
+	.text('Year');
+
+svg.append('g') // Y-axis
 	.attr('class', 'axis')
-	.attr("transform", "translate(20, 0)")
+	.attr("transform", "translate("+margin.left+", 0)")
 	.call(yAxis);
+
+svg.append('text') // Y-axis label
+	.attr('transform', 'rotate(-90)')
+	.attr('y', 0-margin.left)
+	.attr('x', 0-height/2)
+	.attr('dy', '1em')
+	.style('text-anchor', 'middle')
+	.text('Gross Domestic Product (GDP) - Billions of Dollars');
 
 svg.selectAll('.bar')
 	.data(data)
